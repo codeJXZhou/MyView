@@ -6,7 +6,7 @@ tasks.withType(Javadoc) {
 android {
     compileSdkVersion 26
     defaultConfig {
-//        applicationId "cn.zjx.myview"
+        //applicationId "cn.zjx.myview"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
@@ -46,6 +46,7 @@ dependencies {
     implementation "android.arch.persistence.room:guava:$room_version"
 
 }
+
 
 ext {
     bintrayRepo = 'maven'
