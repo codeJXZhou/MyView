@@ -165,39 +165,36 @@ public class PuzzleMain extends Activity implements OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            // 返回按钮点击事件
-            case R.id.btn_puzzle_main_back:
-                PuzzleMain.this.finish();
-                break;
+        int i = v.getId();
+        if (i == R.id.btn_puzzle_main_back) {
+            PuzzleMain.this.finish();
+
             // 显示原图按钮点击事件
-            case R.id.btn_puzzle_main_img:
-                Animation animShow = AnimationUtils.loadAnimation(
-                        PuzzleMain.this, R.anim.image_show_anim);
-                Animation animHide = AnimationUtils.loadAnimation(
-                        PuzzleMain.this, R.anim.image_hide_anim);
-                if (mIsShowImg) {
-                    mImageView.startAnimation(animHide);
-                    mImageView.setVisibility(View.GONE);
-                    mIsShowImg = false;
-                } else {
-                    mImageView.startAnimation(animShow);
-                    mImageView.setVisibility(View.VISIBLE);
-                    mIsShowImg = true;
-                }
-                break;
+        } else if (i == R.id.btn_puzzle_main_img) {
+            Animation animShow = AnimationUtils.loadAnimation(
+                    PuzzleMain.this, R.anim.image_show_anim);
+            Animation animHide = AnimationUtils.loadAnimation(
+                    PuzzleMain.this, R.anim.image_hide_anim);
+            if (mIsShowImg) {
+                mImageView.startAnimation(animHide);
+                mImageView.setVisibility(View.GONE);
+                mIsShowImg = false;
+            } else {
+                mImageView.startAnimation(animShow);
+                mImageView.setVisibility(View.VISIBLE);
+                mIsShowImg = true;
+            }
+
             // 重置按钮点击事件
-            case R.id.btn_puzzle_main_restart:
-                cleanConfig();
-                generateGame();
-                recreateData();
-                // 通知GridView更改UI
-                mTvPuzzleMainCounts.setText("" + COUNT_INDEX);
-                mAdapter.notifyDataSetChanged();
-                mGvPuzzleMainDetail.setEnabled(true);
-                break;
-            default:
-                break;
+        } else if (i == R.id.btn_puzzle_main_restart) {
+            cleanConfig();
+            generateGame();
+            recreateData();
+            // 通知GridView更改UI
+            mTvPuzzleMainCounts.setText("" + COUNT_INDEX);
+            mAdapter.notifyDataSetChanged();
+            mGvPuzzleMainDetail.setEnabled(true);
+
         }
     }
 

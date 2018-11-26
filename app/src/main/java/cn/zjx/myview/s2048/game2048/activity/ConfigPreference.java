@@ -62,43 +62,41 @@ public class ConfigPreference extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_gamelines:
-                mBuilder = new AlertDialog.Builder(this);
-                mBuilder.setTitle("choose the lines of the game");
-                mBuilder.setItems(mGameLinesList,
-                        new DialogInterface.OnClickListener() {
+        int i = v.getId();
+        if (i == R.id.btn_gamelines) {
+            mBuilder = new AlertDialog.Builder(this);
+            mBuilder.setTitle("choose the lines of the game");
+            mBuilder.setItems(mGameLinesList,
+                    new DialogInterface.OnClickListener() {
 
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                mBtnGameLines.setText(mGameLinesList[which]);
-                            }
-                        });
-                mBuilder.create().show();
-                break;
-            case R.id.btn_goal:
-                mBuilder = new AlertDialog.Builder(this);
-                mBuilder.setTitle("choose the goal of the game");
-                mBuilder.setItems(mGameGoalList,
-                        new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mBtnGameLines.setText(mGameLinesList[which]);
+                        }
+                    });
+            mBuilder.create().show();
 
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                mBtnGoal.setText(mGameGoalList[which]);
-                            }
-                        });
-                mBuilder.create().show();
-                break;
-            case R.id.btn_back:
-                this.finish();
-                break;
-            case R.id.btn_done:
-                saveConfig();
-                setResult(RESULT_OK);
-                this.finish();
-                break;
-            default:
-                break;
+        } else if (i == R.id.btn_goal) {
+            mBuilder = new AlertDialog.Builder(this);
+            mBuilder.setTitle("choose the goal of the game");
+            mBuilder.setItems(mGameGoalList,
+                    new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mBtnGoal.setText(mGameGoalList[which]);
+                        }
+                    });
+            mBuilder.create().show();
+
+        } else if (i == R.id.btn_back) {
+            this.finish();
+
+        } else if (i == R.id.btn_done) {
+            saveConfig();
+            setResult(RESULT_OK);
+            this.finish();
+
         }
     }
 }

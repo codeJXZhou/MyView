@@ -108,20 +108,18 @@ public class Game extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_restart:
-                mGameView.startGame();
-                setScore(0, 0);
-                break;
-            case R.id.btn_revert:
-                mGameView.revertGame();
-                break;
-            case R.id.btn_option:
-                Intent intent = new Intent(Game.this, ConfigPreference.class);
-                startActivityForResult(intent, 0);
-                break;
-            default:
-                break;
+        int i = v.getId();
+        if (i == R.id.btn_restart) {
+            mGameView.startGame();
+            setScore(0, 0);
+
+        } else if (i == R.id.btn_revert) {
+            mGameView.revertGame();
+
+        } else if (i == R.id.btn_option) {
+            Intent intent = new Intent(Game.this, ConfigPreference.class);
+            startActivityForResult(intent, 0);
+
         }
     }
 

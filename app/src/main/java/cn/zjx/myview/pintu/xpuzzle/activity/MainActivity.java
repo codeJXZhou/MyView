@@ -248,22 +248,19 @@ public class MainActivity extends Activity implements OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            // Type
-            case R.id.tv_main_type_2:
-                mType = 2;
-                mTvPuzzleMainTypeSelected.setText("2 X 2");
-                break;
-            case R.id.tv_main_type_3:
-                mType = 3;
-                mTvPuzzleMainTypeSelected.setText("3 X 3");
-                break;
-            case R.id.tv_main_type_4:
-                mType = 4;
-                mTvPuzzleMainTypeSelected.setText("4 X 4");
-                break;
-            default:
-                break;
+        int i = v.getId();
+        if (i == R.id.tv_main_type_2) {
+            mType = 2;
+            mTvPuzzleMainTypeSelected.setText("2 X 2");
+
+        } else if (i == R.id.tv_main_type_3) {
+            mType = 3;
+            mTvPuzzleMainTypeSelected.setText("3 X 3");
+
+        } else if (i == R.id.tv_main_type_4) {
+            mType = 4;
+            mTvPuzzleMainTypeSelected.setText("4 X 4");
+
         }
         mPopupWindow.dismiss();
     }
