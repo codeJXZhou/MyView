@@ -4,7 +4,7 @@ apply plugin: 'org.greenrobot.greendao' // apply plugin
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "cn.zjx.myview"
+        //applicationId "cn.zjx.myview"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
