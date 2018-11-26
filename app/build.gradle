@@ -69,5 +69,5 @@ ext {
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
 }
-apply from: 'https://raw.githubusercontent.com/hgDendi/AndroidJCenterDemo/master/bintray.gradle'
-apply from: 'https://raw.githubusercontent.com/hgDendi/AndroidJCenterDemo/master/maveninstall.gradle'
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
