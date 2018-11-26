@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.zjx.myview">
+
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <application
+        android:name=".s2048.game2048.config.Config"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+
+        <service
+            android:name=".MessengerService"
+            android:process=":remote" />
+        <service
+            android:name=".BookService"
+            android:process=":remote1" />
+
+        <provider
+            android:name=".bookp.BookProvider"
+            android:authorities="cn.zjx.myview.bookp"
+            android:permission="cn.zjx.PROVIDER"
+            android:process=":provider" />
+
+        <activity
+            android:name=".ProviderActivity"
+            android:label="@string/title_activity_provider"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <service
+            android:name=".BinderPoolService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver android:name=".NewAppWidget">
+            <intent-filter>
+                <action android:name="cn.zjx.myview.action.CLICK" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info" />
+        </receiver>
+
+        <activity
+            android:name=".pintu.xpuzzle.activity.MainActivity"
+            android:label="@string/title_activity_provider"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".pintu.xpuzzle.activity.PuzzleMain"
+            android:label="@string/title_activity_provider"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".s2048.game2048.activity.Game"
+            android:label="@string/app_name" />
+        <activity android:name=".s2048.game2048.activity.ConfigPreference" />
+
+        <receiver android:name=".CustomWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/custom_widget" />
+        </receiver>
+
+        <service
+            android:name=".UpdateService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <activity android:name=".OneActivity">
+            <intent-filter>
+                　　　
+
+                <action android:name="cn.zjx.myview.intent.action.MyAty" />
+                　
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TwoActivity">
+            <intent-filter>
+                　
+
+                <action android:name="cn.zjx.myview.intent.action.MyAty" />
+                　
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".behavior.Main0Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
+</manifest>
